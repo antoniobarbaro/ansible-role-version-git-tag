@@ -1,0 +1,13 @@
+---
+# tasks file for nextcloudversion-git-tag
+- name: get version tag from git
+  command: git describe --abbrev=0 --tags
+  args:
+    chdir: "{{ version_git_repo_path }}"
+  delegate_to: localhost
+  register: versiontag
+
+- name: create version file
+  copy:
+    content: '{{ versiontag.stdout }}'
+    dest: '{{ version_git_tag_file }}'

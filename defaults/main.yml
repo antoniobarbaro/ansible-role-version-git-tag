@@ -1,0 +1,5 @@
+---
+# defaults file for version-git-tag
+#
+version_git_tag_file: /tmp/version.txt
+version_git_repo_path: '../'
